@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{666A1F1E-0853-40F4-9394-37FE9C6C05F6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DecathlonDataProcessSystem.DAL</RootNamespace>
+    <AssemblyName>DecathlonDataProcessSystem.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BasicDataDAL.cs" />
+    <Compile Include="CommonDAL.cs" />
+    <Compile Include="CubeNumberAdjustmentDAL.cs" />
+    <Compile Include="EmployeeDAL.cs" />
+    <Compile Include="EmployeeLoginDAL.cs" />
+    <Compile Include="NetWeightAdjustmentDAL.cs" />
+    <Compile Include="OriginalCLPDAL.cs" />
+    <Compile Include="ParcelSetUpDAL.cs" />
+    <Compile Include="ParcelTakeOutConditionDAL.cs" />
+    <Compile Include="ParcelTakeOutDAL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SentialFactorTypeDAL.cs" />
+    <Compile Include="SetBreakUpDAL.cs" />
+    <Compile Include="SupervisionConditionDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DecathlonDataProcessSystem.DBUtility\DecathlonDataProcessSystem.DBUtility.csproj">
+      <Project>{8701A7C8-A5DE-4599-BB3E-0BD4290CECC7}</Project>
+      <Name>DecathlonDataProcessSystem.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DecathlonDataProcessSystem.Model\DecathlonDataProcessSystem.Model.csproj">
+      <Project>{65148AB6-FE5F-4966-9AE1-0D20A5BBE038}</Project>
+      <Name>DecathlonDataProcessSystem.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

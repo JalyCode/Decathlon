@@ -1,0 +1,5 @@
+E:\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Utility\bin\Debug\DecathlonDataProcessSystem.Utility.dll
+E:\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Utility\bin\Debug\DecathlonDataProcessSystem.Utility.pdb
+E:\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Utility\obj\Debug\ResolveAssemblyReference.cache
+E:\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Utility\obj\Debug\DecathlonDataProcessSystem.Utility.dll
+E:\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Utility\obj\Debug\DecathlonDataProcessSystem.Utility.pdb
