@@ -3178,7 +3178,7 @@ namespace DecathlonDataProcessSystem.App
             "PRICE","CURRENCY","COMMERCIAL_INVOICE_NO",	"STORE_NO",	"STORE_NAME"}.ToList<string>());
 
             UnionCLPColumnSequenceAdjust( _UnionCLPSETTotalTable );
-            _UnionCLPSETTotalTable.TableName="SET汇总";
+            _UnionCLPSETTotalTable.TableName=string.Format("SET汇总({0})",_UnionCLPSETTotalTable.Rows.Count);
 
             _ParcelNumberDataSet.Tables.Clear( );
             //_ParcelNumberDataSet.Tables.Add( _UnionCLPTotalTable );
@@ -3237,7 +3237,7 @@ namespace DecathlonDataProcessSystem.App
             //_UnionCLPCommodityInspectionTotalTable=_UnionCLPCommodityInspectionTable;
             //_UnionCLPCommodityInspectionTotalTable=UnionCLPSentialFactorTotalHandle( _UnionCLPCommodityInspectionTable );
             UnionCLPColumnSequenceAdjust( _UnionCLPCommodityInspectionTotalTable );
-            _UnionCLPCommodityInspectionTotalTable.TableName="商检汇总";
+            _UnionCLPCommodityInspectionTotalTable.TableName=string.Format("商检汇总({0})",_UnionCLPCommodityInspectionTotalTable.Rows.Count);
             _ParcelNumberDataSet.Tables.Clear( );
             //_ParcelNumberDataSet.Tables.Add( _UnionCLPTotalTable );
             _ParcelNumberDataSet.Tables.Add( _UnionCLPCommodityInspectionTable );
@@ -3292,7 +3292,7 @@ namespace DecathlonDataProcessSystem.App
 
             //_UnionCLPNonCommodityInspectionTotalTable=UnionCLPSentialFactorTotalHandle( _UnionCLPNonCommodityInspectionTable );
             UnionCLPColumnSequenceAdjust( _UnionCLPNonCommodityInspectionTotalTable );
-            _UnionCLPNonCommodityInspectionTotalTable.TableName="非商检汇总";
+            _UnionCLPNonCommodityInspectionTotalTable.TableName=string.Format("非商检汇总({0})",_UnionCLPNonCommodityInspectionTotalTable.Rows.Count);
             _ParcelNumberDataSet.Tables.Clear( );
             //_ParcelNumberDataSet.Tables.Add( _UnionCLPTotalTable );
             _ParcelNumberDataSet.Tables.Add( _UnionCLPNonCommodityInspectionTable );
@@ -3664,7 +3664,8 @@ namespace DecathlonDataProcessSystem.App
                     //foreach ( DataRow dr in lst )
                     //    dr["数据类型"]="商检数据";
                     //_UnionCLPSETTotalCloneTable.AsEnumerable( ).ToList<DataRow>( ).AddRange( lst );
-                    if ( listHave.Count+lst.Count<=20 )
+                    //if (listHave.Count + lst.Count <= 20)
+                    if ( listHave.Count+lst.Count<=48 )
                     {
                         listHave.AddRange( lst );
                         dic[i]=listHave;
@@ -3687,14 +3688,21 @@ namespace DecathlonDataProcessSystem.App
             {
                 if ( kvp.Value.Count>0 )
                 {
-                    while ( kvp.Value.Count<20 && kvp.Value.CopyToDataTable( ).Select( "数据类型='商检数据'" ).Count( )>0 &&_sourceCommodityInspectionTable.Rows.Count>0 )
+                    //由原来20条一组增加到48条一组 by hualin
+                    //while (kvp.Value.Count < 20 && kvp.Value.CopyToDataTable().Select("数据类型='商检数据'").Count() > 0 && _sourceCommodityInspectionTable.Rows.Count > 0)
+                    while ( kvp.Value.Count<48 && kvp.Value.CopyToDataTable( ).Select( "数据类型='商检数据'" ).Count( )>0 &&_sourceCommodityInspectionTable.Rows.Count>0 )
                     {
 
                         tempDT=new DataTable( );
                         tempDT=sourceSetTable.Clone( );
-                        tempDT.Rows.Add( new object[] { _sourceCommodityInspectionTable.Rows[0]["中文品名"] , _sourceCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceCommodityInspectionTable.Rows[0]["申报要素"] , _sourceCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                        //添加原产国字段 by hualin
+                        tempDT.Rows.Add(new object[] { _sourceCommodityInspectionTable.Rows[0]["中文品名"] , _sourceCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceCommodityInspectionTable.Rows[0]["申报要素"] , _sourceCommodityInspectionTable.Rows[0]["QUANTITY"] , 
                             _sourceCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceCommodityInspectionTable.Rows[0]["英文品名"] , _sourceCommodityInspectionTable.Rows[0]["法定计量单位"] ,  _sourceCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
-                            _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] } );
+                            _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] ,_sourceCommodityInspectionTable.Rows[0]["ORIGIN"], _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] });
+                        
+                        //tempDT.Rows.Add( new object[] { _sourceCommodityInspectionTable.Rows[0]["中文品名"] , _sourceCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceCommodityInspectionTable.Rows[0]["申报要素"] , _sourceCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                        //    _sourceCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceCommodityInspectionTable.Rows[0]["英文品名"] , _sourceCommodityInspectionTable.Rows[0]["法定计量单位"] ,  _sourceCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
+                        //    _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] } );
                         kvp.Value.AddRange( tempDT.AsEnumerable( ) );
                         _sourceCommodityInspectionTable.Rows.RemoveAt( 0 );
                         _sourceCommodityInspectionTable.AcceptChanges( );
@@ -3704,9 +3712,13 @@ namespace DecathlonDataProcessSystem.App
                 {
                     tempDT=new DataTable( );
                     tempDT=sourceSetTable.Clone( );
+                    //添加原产国字段 by hualin
                     tempDT.Rows.Add( new object[] { _sourceCommodityInspectionTable.Rows[0]["中文品名"] , _sourceCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceCommodityInspectionTable.Rows[0]["申报要素"] , _sourceCommodityInspectionTable.Rows[0]["QUANTITY"] , 
                             _sourceCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceCommodityInspectionTable.Rows[0]["英文品名"] , _sourceCommodityInspectionTable.Rows[0]["法定计量单位"] ,  _sourceCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
-                            _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] } );
+                            _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceCommodityInspectionTable.Rows[0]["ORIGIN"], _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] });
+                    //tempDT.Rows.Add(new object[] { _sourceCommodityInspectionTable.Rows[0]["中文品名"] , _sourceCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceCommodityInspectionTable.Rows[0]["申报要素"] , _sourceCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                    //        _sourceCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceCommodityInspectionTable.Rows[0]["英文品名"] , _sourceCommodityInspectionTable.Rows[0]["法定计量单位"] ,  _sourceCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
+                    //        _sourceCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceCommodityInspectionTable.Rows[0]["监管条件"] , _sourceCommodityInspectionTable.Rows[0]["GroupID"],_sourceCommodityInspectionTable.Rows[0]["数据类型"],_sourceCommodityInspectionTable.Rows[0]["BigClass"] });
                     kvp.Value.AddRange( tempDT.AsEnumerable( ) );
                     _sourceCommodityInspectionTable.Rows.RemoveAt( 0 );
                     _sourceCommodityInspectionTable.AcceptChanges( );
@@ -3798,7 +3810,9 @@ namespace DecathlonDataProcessSystem.App
                     //foreach ( DataRow dr in lst )
                     //    dr["数据类型"]="非商检数据";
                     //_UnionCLPSETTotalCloneTable.AsEnumerable( ).ToList<DataRow>( ).AddRange( lst );
-                    if ( listHave.Count+lst.Count<=20 )
+                    //由原来20条一组增加到48条一组 by hualin
+                    //if ( listHave.Count+lst.Count<=20 )
+                    if (listHave.Count + lst.Count <= 48)
                     {
                         listHave.AddRange( lst );
                         dic[i]=listHave;
@@ -3828,13 +3842,19 @@ namespace DecathlonDataProcessSystem.App
                 //kvp.Value.Select( "数据类型='非商检数据'" ).Count( )
                 if ( kvp.Value.Count>0 )
                 {
-                    while ( kvp.Value.Count<20 && kvp.Value.CopyToDataTable( ).Select( "数据类型='非商检数据'" ).Count( )>0 &&_sourceNonCommodityInspectionTable.Rows.Count>0 )
+                    //由原来20条一组增加到48条一组 by hualin
+                    //while ( kvp.Value.Count<20 && kvp.Value.CopyToDataTable( ).Select( "数据类型='非商检数据'" ).Count( )>0 &&_sourceNonCommodityInspectionTable.Rows.Count>0 )
+                    while (kvp.Value.Count < 48 && kvp.Value.CopyToDataTable().Select("数据类型='非商检数据'").Count() > 0 && _sourceNonCommodityInspectionTable.Rows.Count > 0)
                     {
                         tempDT=new DataTable( );
                         tempDT=sourceSetTable.Clone( );
-                        tempDT.Rows.Add( new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                        //添加原产国字段 by hualin
+                        tempDT.Rows.Add(new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
                                 _sourceNonCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceNonCommodityInspectionTable.Rows[0]["英文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["法定计量单位"] , _sourceNonCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
-                                _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] } );
+                                _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] ,  _sourceNonCommodityInspectionTable.Rows[0]["ORIGIN"],_sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] });
+                        //tempDT.Rows.Add( new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                        //        _sourceNonCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceNonCommodityInspectionTable.Rows[0]["英文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["法定计量单位"] , _sourceNonCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
+                        //        _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] ,_sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] });
                         kvp.Value.AddRange( tempDT.AsEnumerable( ) );
                         _sourceNonCommodityInspectionTable.Rows.RemoveAt( 0 );
                         _sourceNonCommodityInspectionTable.AcceptChanges( );
@@ -3844,9 +3864,14 @@ namespace DecathlonDataProcessSystem.App
                 {
                     tempDT=new DataTable( );
                     tempDT=sourceSetTable.Clone( );
-                    tempDT.Rows.Add( new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                    //添加原产国字段 by hualin
+                    tempDT.Rows.Add(new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
                                 _sourceNonCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceNonCommodityInspectionTable.Rows[0]["英文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["法定计量单位"] , _sourceNonCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
-                                _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] } );
+                                _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] ,_sourceNonCommodityInspectionTable.Rows[0]["ORIGIN"],  _sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] });
+
+                    //tempDT.Rows.Add( new object[] { _sourceNonCommodityInspectionTable.Rows[0]["中文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["HS_CODE_(IN_CAT)"] , _sourceNonCommodityInspectionTable.Rows[0]["申报要素"] , _sourceNonCommodityInspectionTable.Rows[0]["QUANTITY"] , 
+                    //            _sourceNonCommodityInspectionTable.Rows[0]["TOTAL_VALUE"] , _sourceNonCommodityInspectionTable.Rows[0]["英文品名"] , _sourceNonCommodityInspectionTable.Rows[0]["法定计量单位"] , _sourceNonCommodityInspectionTable.Rows[0]["NET_WEIGHT"] , 
+                    //            _sourceNonCommodityInspectionTable.Rows[0]["GROSS_WEIGHT"] , _sourceNonCommodityInspectionTable.Rows[0]["监管条件"] , _sourceNonCommodityInspectionTable.Rows[0]["GroupID"],_sourceNonCommodityInspectionTable.Rows[0]["数据类型"],_sourceNonCommodityInspectionTable.Rows[0]["BigClass"] } );
                     kvp.Value.AddRange( tempDT.AsEnumerable( ) );
                     _sourceNonCommodityInspectionTable.Rows.RemoveAt( 0 );
                     _sourceNonCommodityInspectionTable.AcceptChanges( );
@@ -3874,7 +3899,9 @@ namespace DecathlonDataProcessSystem.App
             }
             for ( int j=0 ; j<_sourceNonCommodityInspectionTable.Rows.Count ; j++ )
             {
-                if ( j%20==0 )
+                //由原来20条一组增加到48条一组 by hualin
+                //if ( j%20==0 )
+                if (j % 48 == 0)
                 {
                     listHave=new List<DataRow>( );
                     listHave.Add( _sourceNonCommodityInspectionTable.Rows[j] );
