@@ -58,3 +58,6 @@ D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\Decath
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\obj\x86\Debug\DecathlonDataProcessSystem.App.pdb
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\bin\Debug\DecathlonDataProcessSystem.App.exe.config
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\bin\Debug\DecathlonDataProcessSystem.App.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\bin\Debug\DecathlonDataProcessSystem.App.exe.config
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\obj\x86\Debug\DecathlonDataProcessSystem.App.exe
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.App\obj\x86\Debug\DecathlonDataProcessSystem.App.pdb
