@@ -3743,7 +3743,9 @@ namespace DecathlonDataProcessSystem.App
             }
             for ( int j=0 ; j<_sourceCommodityInspectionTable.Rows.Count ; j++ )
             {
-                if ( j%20==0 )
+                //if ( j%20==0 )
+                //从20增加到48
+                if (j % 48 == 0)
                 {
                     listHave=new List<DataRow>( );
                     listHave.Add( _sourceCommodityInspectionTable.Rows[j] );
@@ -3935,7 +3937,7 @@ namespace DecathlonDataProcessSystem.App
             {
                 foreach ( DataRow dr in kvp.Value )
                 {
-                    _UnionCLPSETTotalCloneForBillTable.Rows.Add( new object[] { dr["中文品名"] , dr["HS_CODE_(IN_CAT)"] , dr["申报要素"] , dr["QUANTITY"] , dr["TOTAL_VALUE"] , dr["英文品名"] , dr["法定计量单位"] , dr["NET_WEIGHT"] , dr["GROSS_WEIGHT"] , dr["监管条件"] , dr["GroupID"] , dr["数据类型"] , dr["BigClass"] , kvp.Key } );
+                    _UnionCLPSETTotalCloneForBillTable.Rows.Add(new object[] { dr["中文品名"], dr["HS_CODE_(IN_CAT)"], dr["申报要素"], dr["QUANTITY"], dr["TOTAL_VALUE"], dr["英文品名"], dr["法定计量单位"], dr["NET_WEIGHT"], dr["GROSS_WEIGHT"], dr["ORIGIN"], dr["监管条件"], dr["GroupID"], dr["数据类型"], dr["BigClass"], kvp.Key });
                 }
             }
             DataRow[] drs;

@@ -20,3 +20,14 @@ D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\Decath
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.csprojResolveAssemblyReference.cache
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.dll
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.BLL.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.BLL.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.DAL.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.Model.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.DBUtility.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.DAL.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.Model.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\bin\Debug\DecathlonDataProcessSystem.DBUtility.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.csprojResolveAssemblyReference.cache
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.BLL\obj\Debug\DecathlonDataProcessSystem.BLL.pdb

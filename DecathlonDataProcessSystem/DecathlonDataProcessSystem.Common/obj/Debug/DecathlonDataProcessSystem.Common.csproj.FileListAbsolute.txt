@@ -8,3 +8,8 @@ D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\Decath
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.csprojResolveAssemblyReference.cache
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.dll
 D:\吉时报关-迪卡侬CLP资料处理项目\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\bin\Debug\DecathlonDataProcessSystem.Common.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\bin\Debug\DecathlonDataProcessSystem.Common.pdb
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.csprojResolveAssemblyReference.cache
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.dll
+D:\吉时报关-迪卡侬CLP资料处理项目\Decathlon\DecathlonDataProcessSystem\DecathlonDataProcessSystem.Common\obj\Debug\DecathlonDataProcessSystem.Common.pdb
