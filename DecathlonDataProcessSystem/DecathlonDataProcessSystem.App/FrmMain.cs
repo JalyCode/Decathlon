@@ -3665,6 +3665,7 @@ namespace DecathlonDataProcessSystem.App
                     //    dr["数据类型"]="商检数据";
                     //_UnionCLPSETTotalCloneTable.AsEnumerable( ).ToList<DataRow>( ).AddRange( lst );
                     //if (listHave.Count + lst.Count <= 20)
+                    //由原来20条一组增加到48条一组 by hualin
                     if ( listHave.Count+lst.Count<=48 )
                     {
                         listHave.AddRange( lst );
